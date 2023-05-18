@@ -9,7 +9,6 @@ import Tile from './components/Tile';
 import Environment from './components/Environment';
 import Today from './components/Today';
 import News from './components/News';
-import Security from './components/Security';
 
 function App() {
   return (
@@ -29,12 +28,6 @@ function App() {
           <Row>
             <Tile title={'ENVIRONMENT'}>
               <Environment />
-            </Tile>
-          </Row>
-
-          <Row>
-            <Tile title={'SECURITY'}>
-              <Security />
             </Tile>
           </Row>
 
