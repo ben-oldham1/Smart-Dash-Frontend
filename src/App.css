@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
-}
+body {
+  width: 100vw;
+  height: 100vh;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  background: linear-gradient(270deg, #11141c, #010a26);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: 'Chakra Petch', sans-serif;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+h1 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  font-size: 1em;
+  font-weight: 500;
+  color: #BBBBBB;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+
+.digit-block {
+  padding: 5px;
+  background-color: #1f4564;
+}
+.digit-block {
+  padding: 5px;
+  background-color: #1f4564;
+}
+
+.green-tab {
+  border-left: 7px solid #42ad4d;
+}
+.red-tab {
+  border-left: 7px solid #ad4242;
+}
+
+.news-block {
+  padding: 5px;
+  border-left: 7px solid #22547c;
+  background-color: #1f4564;
+}
+
+
+
+.tile-sidebar {
+  background: linear-gradient(270deg, #363636, #1f1f1f);
+  background-size: 400% 400%;
+  
+  -webkit-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
+  
+  height: 100%;
+  display: block;
+  opacity: 0.7;
+}
+
+
+.tile-header {
+  background: linear-gradient(270deg, #363636, #1f1f1f);
+  background-size: 400% 400%;
+  
+  -webkit-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
+  
+  opacity: 0.7;
+}
+
+.tile-background {
+  background: rgb(6, 50, 79);
+  background: linear-gradient(180deg, rgba(6, 50, 79, 1) 0%, rgba(6, 27, 50, 1) 100%);
+  opacity: 0.7;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
