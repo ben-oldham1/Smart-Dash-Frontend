@@ -87,7 +87,7 @@ p {
   -webkit-animation: GradientBgAnimation 8s ease infinite;
   animation: GradientBgAnimation 8s ease infinite;
   
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .tile-background {
@@ -97,7 +97,7 @@ p {
   -webkit-animation: GradientBgAnimation 8s ease infinite;
   animation: GradientBgAnimation 8s ease infinite;
 
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 @-webkit-keyframes GradientBgAnimation {
