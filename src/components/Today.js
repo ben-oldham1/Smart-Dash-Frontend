@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+
+// import TempGauge from "./components/TempGauge.js";
+
 
 export default function Today(props) {
 
@@ -73,73 +77,58 @@ export default function Today(props) {
 
     return (
         <>
-            <Row className='mb-3'>
-                <Col xs={5}>
-                    <h2>
-                        DATE
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>{formatDate(currentDateTime)}</h3>
-                    </div>
+            <Card bg={'secondary'} text={'light'} className={'mb-3'}>
+                <Card.Body>
+                    <Card.Text>
+                        <Row>
+                            <Col xs={12}>
+                                <h2 className='text-primary'>
+                                    {currentDateTime.toLocaleTimeString()}
+                                </h2>
+                            </Col>
+                        </Row>
 
-                </Col>
+                        <Row>
+                            <Col xs={6}>
+                                <p className='text-muted my-0'>
+                                    Day
+                                </p>
+                                <h4>
+                                    {currentDateTime.toLocaleDateString('en-US', { weekday: 'long' })}
+                                </h4>
+                            </Col>
+                            <Col xs={6}>
+                                <p className='text-muted my-0'>
+                                    Date
+                                </p>
+                                <h4>
+                                    {formatDate(currentDateTime)}
+                                </h4>
+                            </Col>
+                        </Row>
 
-                <Col xs={4}>
-                    <h2>
-                        DAY
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>
-                            {currentDateTime.toLocaleDateString('en-US', { weekday: 'long' })}
-                        </h3>
-                    </div>
-                </Col>
+                        <Row>
+                            <Col xs={6}>
+                                <p className='text-muted my-0'>
+                                    Sunrise
+                                </p>
+                                <h4>
+                                    {loading ? 'Loading...' : sunrise}
+                                </h4>
+                            </Col>
+                            <Col xs={6}>
+                                <p className='text-muted my-0'>
+                                    Sunset
+                                </p>
+                                <h4>
+                                    {loading ? 'Loading...' : sunset}
+                                </h4>
+                            </Col>
+                        </Row>
 
-                <Col xs={3}>
-                    <h2>
-                        YEAR
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>
-                            {currentDateTime.getFullYear()}
-                        </h3>
-                    </div>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col xs={6}>
-                    <h2>
-                        TIME
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>{currentDateTime.toLocaleTimeString()}</h3>
-                    </div>
-
-                </Col>
-
-                <Col xs={3}>
-                    <h2>
-                        SUNRISE
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>
-                            {loading ? 'Loading...' : sunrise}
-                        </h3>
-                    </div>
-                </Col>
-
-                <Col xs={3}>
-                    <h2>
-                        SUNSET
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>
-                            {loading ? 'Loading...' : sunset}
-                        </h3>
-                    </div>
-                </Col>
-            </Row>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         </>
     )
 }

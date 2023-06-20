@@ -2,85 +2,68 @@ import React from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Nav from 'react-bootstrap/Nav';
+
+import TempGauge from './TempGauge'
 
 export default function Environment(props) {
     return (
         <>
-            <Row className='mb-3'>
-                <Col xs={4}>
-                    <h2>
-                        OUTSIDE TEMP
-                    </h2>
-                    <div className='digit-block green-tab'>
-                        <h3>19.4c</h3>
-                    </div>
-                </Col>
+            <Card bg={'secondary'} text={'light'} className={'mb-3'}>
+                <Card.Body>
+                    <Card.Title>Weather</Card.Title>
+                    <Card.Text>
+                        <Row>
+                            <Col xs={6}>
+                                <TempGauge temp={20} id={'outsideTemp'} />
+                            </Col>
 
-                <Col xs={4}>
-                    <h2>
-                        FEELS LIKE
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>
-                            16.8c
-                        </h3>
-                    </div>
-                </Col>
+                            <Col xs={6}>
+                                
+                                <Row>
+                                    <Col className='p-0' xs={6}>
+                                        <p className='text-muted my-0'>
+                                            Feels like
+                                        </p>
+                                        <h4>
+                                            15.8°C
+                                        </h4>
 
-                <Col xs={4}>
-                    <h2>
-                        HUMIDITY
-                    </h2>
-                    <div className='digit-block red-tab'>
-                        <h3>87%</h3>
-                    </div>
-                </Col>
-            </Row>
+                                        <p className='text-muted my-0'>
+                                            Humidity
+                                        </p>
+                                        <h4>
+                                            34%
+                                        </h4>
+                                    </Col>
 
+                                    <Col className='p-0' xs={6}>
+                                        <p className='text-muted my-0'>
+                                            Wind
+                                        </p>
+                                        <h4>
+                                            10.4 <small>mph</small>
+                                        </h4>
+                                    </Col>
+                                </Row>
 
-            <Row>
+                            </Col>
+                        </Row>
 
-                <Col xs={4}>
-                    <h2>
-                        WIND
-                    </h2>
-                    <div className='digit-block'>
-                        <h3>10.3 kmph</h3>
-                    </div>
-                </Col>
-
-                <Col xs={8}>
-                    <Row className='mb-3'>
-                        <Col xs={6}>
-                            <h2>
-                                VISIBILITY
-                            </h2>
-                            <div className='digit-block'>
-                                <h3>10.4 km</h3>
-                            </div>
-                        </Col>
-                        <Col xs={6}>
-                            <h2>
-                                AIR PRESSURE
-                            </h2>
-                            <div className='digit-block'>
-                                <h3>1084 hPa</h3>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <h2>
-                                WEATHER
-                            </h2>
-                            <div className='digit-block'>
-                                <h3>SCATTERED CLOUDS</h3>
-                            </div>
-                        </Col>
-                    </Row>
-                </Col>
-
-            </Row>
+                        <Row>
+                            <Col xs={12}>
+                                <p className='text-muted my-0'>
+                                    Weather
+                                </p>
+                                <h4>
+                                    Scattered Clouds
+                                </h4>
+                            </Col>
+                        </Row>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         </>
     )
 }
