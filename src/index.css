@@ -1,1 +1,9 @@
 @import "bootstrap.css";
+
+/* Overrides the pill control to allow for colour customisation */
+.nav-pills .nav-link {
+    color: #FFFFFF !important;
+}
+.nav-pills .nav-link.active {
+    background-color: #25B9BA !important;
+}
