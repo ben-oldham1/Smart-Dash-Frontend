@@ -10,21 +10,22 @@ import Nav from 'react-bootstrap/Nav';
 export default function Bus(props) {
 
     function updateMap(eventKey) {
-        const mapTypes = {
+        const stopNames = {
             "1": "UWE-SB",
-            "2": "stoke-SB",
-            "3": "centre-NB",
-            "4": "cabot-NB",
+            "2": "UWE-NB",
+            "3": "stoke-SB",
+            "4": "centre-NB",
+            "5": "cabot-NB",
         }
 
         // Update the active tab
         setActiveKey(eventKey)
 
         // Set the new map type based on the eventkey selected
-        setMapType(mapTypes[eventKey])
+        setStopName(stopNames[eventKey])
     }
 
-    const [mapType, setMapType] = useState("stoke-SB");
+    const [stopName, setStopName] = useState("stoke-SB");
     const [activeKey, setActiveKey] = useState("1");
     const handleSelect = (eventKey) => updateMap(eventKey);
 
@@ -34,7 +35,7 @@ export default function Bus(props) {
 
     useEffect(() => {
         const fetchData = () => {
-            fetch('/profile/' + mapType)
+            fetch('/busdata/' + stopName)
                 .then(response => response.json())
                 .then(data => {
                     if (Array.isArray(data)) {
@@ -55,7 +56,7 @@ export default function Bus(props) {
 
         // Clean up the interval when the component unmounts
         return () => clearInterval(interval);
-    }, [mapType]);
+    }, [stopName]);
 
 
 
@@ -76,16 +77,21 @@ export default function Bus(props) {
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="2">
-                                        Stoke Park (SB)
+                                        UWE (NB)
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="3">
-                                        City Centre (NB)
+                                        Stoke Park (SB)
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="4">
+                                        City Centre (NB)
+                                    </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="5">
                                         Cabot Circus (NB)
                                     </Nav.Link>
                                 </Nav.Item>
