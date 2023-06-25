@@ -18,6 +18,7 @@ import Forecast from "./components/Forecast.js";
 import MapComponent from './components/WeatherMap.js';
 import Bins from './components/Bins';
 import Bus from './components/Bus';
+import Speedtest from './components/Speedtest';
 import SettingsForm from './components/SettingsForm';
 
 import ModalComponent from "./components/DarkModal.js";
@@ -83,6 +84,8 @@ function App() {
                 </Card.Text>
               </Card.Body>
             </Card>
+
+            <Speedtest />
 
           </Col>
 
