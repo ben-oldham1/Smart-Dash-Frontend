@@ -57,41 +57,43 @@ const Environment = (props) => {
               <Row>
                 <Col xs={6}>
                   <p className='text-muted my-0'>Feels like</p>
-                  <h4>{main.feels_like}°C</h4>
+                  <h4>
+                    {main.feels_like}
+                    <small>°C</small>
+                  </h4>
 
                   <p className='text-muted my-0'>Humidity</p>
-                  <h4>{main.humidity}%</h4>
+                  <h4>
+                    {main.humidity}
+                    <small>%</small>
+                  </h4>
                 </Col>
 
                 <Col xs={6}>
                   <p className='text-muted my-0'>Wind</p>
                   <h4>
-                    {wind.speed} <small>m/s</small>
+                    {wind.speed} 
+                    <small>m/s</small>
                   </h4>
                 </Col>
               </Row>
             </Col>
           </Row>
 
-          <Row className='mb-2'>
-            <Col xs={6}>
+          <Row>
+            <Col xs={5}>
+              <div className='d-block mb-1'>
+                <small>Updated <span className='text-primary'>{lastUpdated.toLocaleTimeString()}</span></small>
+              </div>
+
+              <Button variant='dark' onClick={() => props.openModal('weatherMap')}>
+                <i class="bi bi-globe-americas"></i> View map
+              </Button>
+            </Col>
+
+            <Col xs={7}>
               <p className='text-muted my-0'>Weather</p>
               <h4>{weather[0].description}</h4>
-            </Col>
-            <Col xs={6}>
-              <p className='text-muted my-0'>Temp today</p>
-              <h4>placeholder...</h4>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col xs={6}>
-                <Button variant='dark' onClick={() => props.openModal('weatherMap')}>
-                    <i class="bi bi-globe-americas"></i> View map
-                </Button>
-            </Col>
-            <Col xs={6}>
-                <p>Last Updated at: <span className='text-primary'>{lastUpdated.toLocaleTimeString()}</span></p>
             </Col>
           </Row>
 
