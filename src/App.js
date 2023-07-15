@@ -12,11 +12,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 import Today from "./components/Today.js";
-import Environment from "./components/Environment.js";
+import Weather from "./components/Weather.js";
 import Plants from "./components/Plants.js";
 import Forecast from "./components/Forecast.js";
 import MapComponent from './components/WeatherMap.js';
-import Bins from './components/Bins';
 import Bus from './components/Bus';
 import Speedtest from './components/Speedtest';
 import SettingsForm from './components/SettingsForm';
@@ -59,20 +58,26 @@ function App() {
   return (
     <>
       <div className='container-fluid py-3'>
-        <Row>
+        <Row className="gutter-small">
 
-          <Col xs={3}>
+          <Col xs={4}>
 
             <Today />
 
-            <Bins />
+            <Bus />
+
+          </Col>
+
+          <Col xs={3}>
+
+            <Plants />
 
             <Card bg={'secondary'} text={'light'} className={'mb-3'}>
               <Card.Body>
                 <Card.Title>Devices</Card.Title>
                 <Card.Text>
                   <Row>
-                    <Col xs={6}>
+                    <Col xs={12}>
 
                       <Button variant='dark' onClick={() => openModal('settings')}>
                         <i class="bi bi-gear"></i> Settings
@@ -91,17 +96,7 @@ function App() {
 
           <Col xs={5}>
 
-            <Environment openModal={openModal} settingsData={settingsData} />
-
-            <Plants />
-
-            <Forecast />
-
-          </Col>
-
-          <Col xs={4}>
-
-            <Bus />
+            <Weather openModal={openModal} settingsData={settingsData} />
 
             <Card bg={'secondary'} text={'light'} className={'mb-3'}>
               <Card.Body>
@@ -110,16 +105,16 @@ function App() {
                   <Row>
                     <Col xs={12}>
 
-                      <Table hover variant='dark'>
+                      <Table striped hover variant="dark">
                         <tbody>
                           <tr>
-                            <td>Titanic sub</td>
+                            <td>Placeholder</td>
                           </tr>
                           <tr>
-                            <td>Titanic sub</td>
+                            <td>Placeholder</td>
                           </tr>
                           <tr>
-                            <td>Titanic sub</td>
+                            <td>Placeholder</td>
                           </tr>
                         </tbody>
                       </Table>
@@ -129,6 +124,9 @@ function App() {
                 </Card.Text>
               </Card.Body>
             </Card>
+
+            <Forecast />
+
           </Col>
 
         </Row>
