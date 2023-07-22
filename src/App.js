@@ -69,12 +69,11 @@ function App() {
           </Col>
 
           <Col xs={3}>
-
             <Plants />
 
             <Card bg={'secondary'} text={'light'} className={'mb-3'}>
               <Card.Body>
-                <Card.Title>Devices</Card.Title>
+                <Card.Title>DEVICES</Card.Title>
                 <Card.Text>
                   <Row>
                     <Col xs={12}>
@@ -91,39 +90,11 @@ function App() {
             </Card>
 
             <Speedtest />
-
           </Col>
 
           <Col xs={5}>
 
             <Weather openModal={openModal} settingsData={settingsData} />
-
-            <Card bg={'secondary'} text={'light'} className={'mb-3'}>
-              <Card.Body>
-                <Card.Title>NEWS HEADLINES</Card.Title>
-                <Card.Text>
-                  <Row>
-                    <Col xs={12}>
-
-                      <Table striped hover variant="dark">
-                        <tbody>
-                          <tr>
-                            <td>Placeholder</td>
-                          </tr>
-                          <tr>
-                            <td>Placeholder</td>
-                          </tr>
-                          <tr>
-                            <td>Placeholder</td>
-                          </tr>
-                        </tbody>
-                      </Table>
-
-                    </Col>
-                  </Row>
-                </Card.Text>
-              </Card.Body>
-            </Card>
 
             <Forecast />
 
