@@ -40,7 +40,7 @@ export default function TempGauge(props) {
     return (
         <GaugeChart id={props.id}
             style={chartStyle}
-            arcsLength={[0.12, 0.37, 0.2, 0.16, 0.15]}
+            arcsLength={[0.12, 0.32, 0.25, 0.16, 0.15]}
             colors={['#3D6BB2', '#7BCBB5', '#53BA47', '#F47B21', '#E72E2E']}
             arcPadding={0.05}
             cornerRadius={3}
