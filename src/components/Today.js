@@ -91,18 +91,18 @@ export default function Today(props) {
                         <Row>
                             <Col xs={6}>
                                 <p className='text-muted my-0'>
-                                    Day
-                                </p>
-                                <h4>
-                                    {currentDateTime.toLocaleDateString('en-US', { weekday: 'long' })}
-                                </h4>
-                            </Col>
-                            <Col xs={6}>
-                                <p className='text-muted my-0'>
                                     Date
                                 </p>
                                 <h4>
                                     {formatDate(currentDateTime)}
+                                </h4>
+                            </Col>
+                            <Col xs={6}>
+                                <p className='text-muted my-0'>
+                                    Sunrise
+                                </p>
+                                <h4>
+                                    {loading ? 'Loading...' : sunrise}
                                 </h4>
                             </Col>
                         </Row>
@@ -110,10 +110,10 @@ export default function Today(props) {
                         <Row>
                             <Col xs={6}>
                                 <p className='text-muted my-0'>
-                                    Sunrise
+                                    Day
                                 </p>
                                 <h4>
-                                    {loading ? 'Loading...' : sunrise}
+                                    {currentDateTime.toLocaleDateString('en-US', { weekday: 'long' })}
                                 </h4>
                             </Col>
                             <Col xs={6}>
@@ -125,6 +125,8 @@ export default function Today(props) {
                                 </h4>
                             </Col>
                         </Row>
+
+
 
                     </Card.Text>
                 </Card.Body>
