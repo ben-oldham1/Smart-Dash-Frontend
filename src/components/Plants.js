@@ -8,39 +8,31 @@ import Nav from 'react-bootstrap/Nav';
 import HumidityGauge from './HumidityGauge'
 
 export default function Environment(props) {
+
     return (
         <>
             <Card bg={'secondary'} text={'light'} className={'mb-3'}>
                 <Card.Body>
-                    <Card.Title>Plants</Card.Title>
+                    <Card.Title>PLANTS</Card.Title>
                     <Card.Text>
                         <Row className='mb-3'>
-                            <Col xs={4}>
+                            <Col xs={6}>
                                 <p className='text-muted my-0'>
-                                    Node 1
+                                    Temperature
                                 </p>
-                                <p className='my-0'>
-                                    Ivy
-                                </p>
-                                <HumidityGauge temp={20} id={'outsideTemp'} />
+                                <h4>
+                                    17
+                                    <small>°C</small>
+                                </h4>
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6}>
                                 <p className='text-muted my-0'>
-                                    Node 2
+                                    Soil moisture
                                 </p>
-                                <p className='my-0'>
-                                    Monstera
-                                </p>
-                                <HumidityGauge temp={40} id={'outsideTemp'} />
-                            </Col>
-                            <Col xs={4}>
-                                <p className='text-muted my-0'>
-                                    Node 3
-                                </p>
-                                <p className='my-0'>
-                                    ZZ plant
-                                </p>
-                                <HumidityGauge temp={70} id={'outsideTemp'} />
+                                <h4>
+                                    41
+                                    <small>%</small>
+                                </h4>
                             </Col>
                         </Row>
 
