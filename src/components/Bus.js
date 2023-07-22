@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import Nav from 'react-bootstrap/Nav';
+import { Button, Collapse, Alert } from 'react-bootstrap';
 
 
 export default function Bus(props) {
@@ -26,28 +27,36 @@ export default function Bus(props) {
     }
 
     const [stopName, setStopName] = useState("stoke-SB");
-    const [activeKey, setActiveKey] = useState("1");
+    const [activeKey, setActiveKey] = useState("3");
     const handleSelect = (eventKey) => updateMap(eventKey);
 
 
     // Retrieve the data from Flask API
     const [responseData, setResponseData] = useState([]);
+    const [alertData, setAlertData] = useState([]);
+
+    const [lastUpdated, setLastUpdated] = useState(null);
+
 
     useEffect(() => {
         const fetchData = () => {
             fetch('/busdata/' + stopName)
                 .then(response => response.json())
                 .then(data => {
-                    if (Array.isArray(data)) {
-                        setResponseData(data);
+                    if (Array.isArray(data['buses'])) {
+                        setResponseData(data['buses']);
+                        setAlertData(data['alerts']);
+                        setLastUpdated(new Date());
                     } else {
                         console.error('Response data is not an array:', data);
                     }
                 })
                 .catch(error => console.error(error));
-                console.log('update')
+            console.log('update')
+            console.log(responseData)
+            console.log(alertData)
         };
-        
+
         // Fetch data initially
         fetchData();
 
@@ -58,6 +67,12 @@ export default function Bus(props) {
         return () => clearInterval(interval);
     }, [stopName]);
 
+
+    const [showAlert, setShowAlert] = useState(false);
+
+    const handleButtonClick = () => {
+        setShowAlert(!showAlert);
+    };
 
 
     return (
@@ -100,14 +115,33 @@ export default function Bus(props) {
                     </Row>
 
                     <Row>
+
+                        <Col xs={12}>
+                            {alertData ? (
+                                <div>
+                                    <Button variant="dark" className='mb-3' onClick={handleButtonClick}>
+                                        <i class="bi bi-exclamation-circle"></i> Disruption alert
+                                    </Button>
+
+                                    <Collapse in={showAlert}>
+                                        <div>
+                                            <Alert className='bg-dark text-light border-warning' onClose={handleButtonClick}>
+                                                {alertData}
+                                            </Alert>
+                                        </div>
+                                    </Collapse>
+                                </div>
+                            ) : ("")}
+                        </Col>
+
                         <Col xs={12}>
 
                             <Table striped hover variant="dark">
                                 <tbody>
                                     {responseData.map((item, index) => (
                                         <tr key={index}>
-                                            <td>{item.headsign}</td>
                                             <td>{item.lineName}</td>
+                                            <td>{item.headsign}</td>
                                             <td>{item.scheduledDepartureTime}</td>
 
                                         </tr>
@@ -115,12 +149,16 @@ export default function Bus(props) {
                                 </tbody>
                             </Table>
 
-
                         </Col>
+
                     </Row>
                     <Row>
                         <Col xs={12}>
-                            <small>Updated [placeholder] mins ago</small>
+                            {responseData.length > 0 ? (
+                                <small className='text-muted'>Updated <span> {lastUpdated.toLocaleTimeString()} </span></small>
+                            ) : (
+                                <small className='text-muted'>Updating now...</small>
+                            )}
                         </Col>
                     </Row>
 
