@@ -13,6 +13,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import Today from "./components/Today.js";
 import Weather from "./components/Weather.js";
+import News from "./components/News.js";
 import Plants from "./components/Plants.js";
 import Forecast from "./components/Forecast.js";
 import MapComponent from './components/WeatherMap.js';
@@ -21,6 +22,8 @@ import Speedtest from './components/Speedtest';
 import SettingsForm from './components/SettingsForm';
 
 import ModalComponent from "./components/DarkModal.js";
+
+import TileConfig from './TileConfig.json';
 
 function App() {
 
@@ -42,8 +45,6 @@ function App() {
     }));
   };
 
-
-
   // Load settings data from environment variables
   const [settingsData, setSettingsData] = useState({
     "weatherApiKey": process.env.REACT_APP_WEATHER_API_KEY,
@@ -55,25 +56,36 @@ function App() {
   });
 
 
+
+
   return (
     <>
       <div className='container-fluid py-3'>
         <Row className="gutter-small">
 
           <Col xs={4}>
-
+          { TileConfig.showtiles.Today &&
             <Today />
+          }
 
+          { TileConfig.showtiles.Bus &&
             <Bus />
+          }
 
           </Col>
 
           <Col xs={3}>
+
+          { TileConfig.showtiles.Plants &&
             <Plants />
+          }
 
             <Card bg={'secondary'} text={'light'} className={'mb-3'}>
               <Card.Body>
                 <Card.Title>DEVICES</Card.Title>
+
+                <hr className='border-gray mt-1' />
+
                 <Card.Text>
                   <Row>
                     <Col xs={12}>
@@ -89,14 +101,23 @@ function App() {
               </Card.Body>
             </Card>
 
+            { TileConfig.showtiles.Speedtest &&
             <Speedtest />
+          }
           </Col>
 
           <Col xs={5}>
-
+          { TileConfig.showtiles.Weather &&
             <Weather openModal={openModal} settingsData={settingsData} />
+          }
 
+          { TileConfig.showtiles.Forecast &&
             <Forecast />
+          }
+
+          { TileConfig.showtiles.News &&
+            <News />
+          }
 
           </Col>
 
