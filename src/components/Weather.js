@@ -42,6 +42,9 @@ const Weather = (props) => {
     <Card bg={'secondary'} text={'light'} className={'mb-3'}>
       <Card.Body>
         <Card.Title>WEATHER</Card.Title>
+
+        <hr className='border-gray mt-1' />
+
         <Card.Text>
           <Row className='mb-2'>
 

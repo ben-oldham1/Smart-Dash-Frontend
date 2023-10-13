@@ -24,6 +24,8 @@ export default function Bus(props) {
 
         // Set the new map type based on the eventkey selected
         setStopName(stopNames[eventKey])
+
+        setResponseData([])
     }
 
     const [stopName, setStopName] = useState("stoke-SB");
@@ -81,10 +83,13 @@ export default function Bus(props) {
                 <Card.Body>
                     <Card.Title>BUS DEPARTURES</Card.Title>
 
+                    <hr className='border-gray my-1' />
+
+
                     <Row>
                         <Col xs={12}>
 
-                            <Nav className='mb-3' variant="pills" activeKey={activeKey} onSelect={handleSelect}>
+                            <Nav className='mb-3 mt-2' variant="pills" activeKey={activeKey} onSelect={handleSelect}>
                                 <Nav.Item>
                                     <Nav.Link eventKey="1">
                                         UWE (SB)
@@ -152,6 +157,9 @@ export default function Bus(props) {
                         </Col>
 
                     </Row>
+
+                    <hr className='border-gray my-1' />
+
                     <Row>
                         <Col xs={12}>
                             {responseData.length > 0 ? (

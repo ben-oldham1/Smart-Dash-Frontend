@@ -14,6 +14,9 @@ export default function Environment(props) {
             <Card bg={'secondary'} text={'light'} className={'mb-3'}>
                 <Card.Body>
                     <Card.Title>PLANTS</Card.Title>
+
+                    <hr className='border-gray my-1' />
+
                     <Card.Text>
                         <Row className='mb-3'>
                             <Col xs={6}>
@@ -36,9 +39,11 @@ export default function Environment(props) {
                             </Col>
                         </Row>
 
+                        <hr className='border-gray my-1' />
+
                         <Row>
                             <Col xs={12}>
-                                <small>Updated 45 mins ago</small>
+                                <small className='text-muted'>Updated 45 mins ago</small>
                             </Col>
                         </Row>
 

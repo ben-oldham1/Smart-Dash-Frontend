@@ -13,6 +13,9 @@ export default function Forecast(props) {
             <Card bg={'secondary'} text={'light'} className={'mb-3'}>
                 <Card.Body>
                     <Card.Title>FORECAST</Card.Title>
+
+                    <hr className='border-gray mt-1' />
+
                     <Card.Text>
                         <Row className='mb-3'>
                             <Col xs={3}>
