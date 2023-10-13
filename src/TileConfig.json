@@ -1,0 +1,11 @@
+{
+    "showtiles": {
+        "Today": false,
+        "Bus": false,
+        "Forecast": false,
+        "Plants": false,
+        "Speedtest": false,
+        "Weather": false,
+        "News": true
+    }
+}
