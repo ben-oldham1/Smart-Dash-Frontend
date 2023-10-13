@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, ResponsiveContainer } from 'recharts';
 
 const LineGraph = ({ data }) => {
   return (
@@ -12,9 +12,6 @@ const LineGraph = ({ data }) => {
           data={data}
         >
           <XAxis dataKey="time" />
-          <YAxis 
-            width={30}
-          />
           <Line type="monotone" dataKey="download" stroke="#007bff" />
           <Line type="monotone" dataKey="upload" stroke="#dc3545" />
         </LineChart>
