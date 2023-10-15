@@ -62,8 +62,8 @@ export default function Bus(props) {
         // Fetch data initially
         fetchData();
 
-        // Fetch data every 30 minutes
-        const interval = setInterval(fetchData, 30 * 60 * 1000);
+        // Fetch data every 20 minutes
+        const interval = setInterval(fetchData, 20 * 60 * 1000);
 
         // Clean up the interval when the component unmounts
         return () => clearInterval(interval);
