@@ -5,8 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
 
-import HumidityGauge from './HumidityGauge'
-
 export default function Forecast(props) {
     return (
         <>

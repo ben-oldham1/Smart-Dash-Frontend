@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import TempGauge from './TempGauge';
+import TempGauge from './graphsAndCharts/TempGauge';
 
 const Weather = (props) => {
   const [weatherData, setWeatherData] = useState(null);
@@ -17,11 +17,14 @@ const Weather = (props) => {
         setLastUpdated(new Date());
 
         const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        setWeatherData(data);
+        if (response.ok) {
+          const data = await response.json();
+          setWeatherData(data);
+        } else {
+          console.error('Error fetching weather data:', response.status);
+        }
       } catch (error) {
-        console.log('Error fetching weather data:', error);
+        console.error('Error fetching weather data:', error);
       }
     };
 
@@ -34,20 +37,55 @@ const Weather = (props) => {
     };
   }, []);
 
-  const main = weatherData?.main;
-  const weather = weatherData?.weather;
-  const wind = weatherData?.wind;
+  const main = weatherData?.main || {};
+  const weather = weatherData?.weather || [];
+  const wind = weatherData?.wind || {};
 
   return (
-    <Card bg={'secondary'} text={'light'} className={'mb-3'}>
+    <Card bg='secondary' text='light' className='mb-3'>
       <Card.Body>
         <Card.Title>WEATHER</Card.Title>
-
         <hr className='border-gray mt-1' />
-
         <Card.Text>
           <Row className='mb-2'>
+            <Col xs={4}>
+              <p className='text-muted my-0'>Feels like</p>
+              {weatherData ? (
+                <h4>
+                  {main.feels_like}
+                  <small>°C</small>
+                </h4>
+              ) : (
+                <h4>...</h4>
+              )}
+            </Col>
 
+            <Col xs={4}>
+              <p className='text-muted my-0'>Humidity</p>
+              {weatherData ? (
+                <h4>
+                  {main.humidity}
+                  <small>%</small>
+                </h4>
+              ) : (
+                <h4>...</h4>
+              )}
+            </Col>
+
+            <Col xs={4}>
+              <p className='text-muted my-0'>Wind</p>
+              {weatherData ? (
+                <h4>
+                  {wind.speed}
+                  <small>m/s</small>
+                </h4>
+              ) : (
+                <h4>...</h4>
+              )}
+            </Col>
+          </Row>
+
+          <Row className='mb-2'>
             <Col xs={5}>
               {weatherData ? (
                 <TempGauge temp={main.temp} id={'outsideTemp'} />
@@ -55,45 +93,18 @@ const Weather = (props) => {
                 <h4>...</h4>
               )}
             </Col>
-
             <Col xs={7}>
-              <Row>
-                <Col xs={6}>
-                  <p className='text-muted my-0'>Feels like</p>
-                  {weatherData ? (
-                    <h4>
-                      {main.feels_like}
-                      <small>°C</small>
-                    </h4>
-                  ) : (
-                    <h4>...</h4>
-                  )}
-
-                  <p className='text-muted my-0'>Humidity</p>
-                  {weatherData ? (
-                    <h4>
-                      {main.humidity}
-                      <small>%</small>
-                    </h4>
-                  ) : (
-                    <h4>...</h4>
-                  )}
-                </Col>
-
-                <Col xs={6}>
-                  <p className='text-muted my-0'>Wind</p>
-                  {weatherData ? (
-                    <h4>
-                      {wind.speed}
-                      <small>m/s</small>
-                    </h4>
-                  ) : (
-                    <h4>...</h4>
-                  )}
-                </Col>
-              </Row>
+              <p className='text-muted my-0'>Weather</p>
+              {weatherData ? (
+                <h4>{weatherData ? weather[0].description.charAt(0).toUpperCase() + weather[0].description.slice(1) : '...'}</h4>
+              ) : (
+                <h4>...</h4>
+              )}
             </Col>
           </Row>
+
+
+          <hr className='border-gray my-1' />
 
           <Row className='mb-2'>
             <Col xs={5}>
@@ -104,19 +115,6 @@ const Weather = (props) => {
                   <small className='text-muted'>Updating now...</small>
                 )}
               </div>
-
-              <Button variant='dark' onClick={() => props.openModal('weatherMap')}>
-                <i className="bi bi-globe-americas"></i> View map
-              </Button>
-            </Col>
-
-            <Col xs={7}>
-              <p className='text-muted my-0'>Weather</p>
-              {weatherData ? (
-                <h4>{weatherData ? weather[0].description.charAt(0).toUpperCase() + weather[0].description.slice(1) : '...'}</h4>
-              ) : (
-                <h4>...</h4>
-              )}
             </Col>
           </Row>
 
