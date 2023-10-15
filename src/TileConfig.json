@@ -4,9 +4,7 @@
         "Suncycle": true,
         "Bus": true,
         "DailySpacePic": true,
-        "Devices": false,
         "Forecast": false,
-        "Plants": false,
         "Speedtest": true,
         "Weather": true,
         "News": true
