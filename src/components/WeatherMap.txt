@@ -1,3 +1,8 @@
+// ===================
+// REDUNDANT JS COMPONENT
+// ===================
+// This component is not currently being used, but may be implmented in future
+
 import React, { useEffect, useState, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 
@@ -5,12 +10,13 @@ import Nav from 'react-bootstrap/Nav';
 
 import L from 'leaflet';
 
-const MapComponent = ({ settingsData }) => {
+const MapComponent = () => {
 
-    const apiKey = settingsData["weatherApiKey"]
-    const latitude = settingsData["lat"]
-    const longitude = settingsData["long"]
-    const zoom = settingsData["zoom"]
+    // This data would need to be provided by the server
+    const apiKey = 
+    const latitude =
+    const longitude =
+    const zoom =
 
     const mapRef = useRef(null);
     
@@ -19,8 +25,7 @@ const MapComponent = ({ settingsData }) => {
         const mapTypes = {
             "1": "precipitation_new",
             "2": "clouds_new",
-            "3": "wind_new",
-            "4": "temp_new",
+            "3": "wind_new"
         }
 
         // Update the active tab
@@ -62,11 +67,6 @@ const MapComponent = ({ settingsData }) => {
                 <Nav.Item>
                     <Nav.Link eventKey="3">
                         Windspeed
-                    </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="4">
-                        Temperature
                     </Nav.Link>
                 </Nav.Item>
             </Nav>
