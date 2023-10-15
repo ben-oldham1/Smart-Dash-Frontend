@@ -20,10 +20,13 @@ import MapComponent from './components/WeatherMap.js';
 import Bus from './components/Bus';
 import Speedtest from './components/Speedtest';
 import SettingsForm from './components/SettingsForm';
+import Devices from './components/Devices';
+import DailySpacePic from './components/DailySpacePic';
 
 import ModalComponent from "./components/DarkModal.js";
 
 import TileConfig from './TileConfig.json';
+import Suncycle from './components/Suncycle';
 
 function App() {
 
@@ -60,64 +63,55 @@ function App() {
 
   return (
     <>
-      <div className='container-fluid py-3'>
+      <div className='container-fluid'>
         <Row className="gutter-small">
 
-          <Col xs={4}>
-          { TileConfig.showtiles.Today &&
-            <Today />
-          }
+          <Col xs={4} className={'height-100vh py-3 overflow-auto'}>
+            {TileConfig.showtiles.Today &&
+              <Today />
+            }
 
-          { TileConfig.showtiles.Bus &&
-            <Bus />
-          }
+            {TileConfig.showtiles.Bus &&
+              <Bus />
+            }
 
           </Col>
 
-          <Col xs={3}>
+          <Col xs={3} className={'height-100vh py-3 overflow-auto'}>
 
-          { TileConfig.showtiles.Plants &&
-            <Plants />
-          }
+            {TileConfig.showtiles.Devices &&
+              <Devices openModal={openModal} />
+            }
 
-            <Card bg={'secondary'} text={'light'} className={'mb-3'}>
-              <Card.Body>
-                <Card.Title>DEVICES</Card.Title>
+            {TileConfig.showtiles.Plants &&
+              <Plants />
+            }
 
-                <hr className='border-gray mt-1' />
+            {TileConfig.showtiles.Speedtest &&
+              <Speedtest />
+            }
 
-                <Card.Text>
-                  <Row>
-                    <Col xs={12}>
+            {TileConfig.showtiles.Suncycle &&
+              <Suncycle />
+            }
 
-                      <Button variant='dark' onClick={() => openModal('settings')}>
-                        <i class="bi bi-gear"></i> Settings
-                      </Button>
-
-                    </Col>
-                  </Row>
-
-                </Card.Text>
-              </Card.Body>
-            </Card>
-
-            { TileConfig.showtiles.Speedtest &&
-            <Speedtest />
-          }
+            {TileConfig.showtiles.DailySpacePic &&
+              <DailySpacePic />
+            }
           </Col>
 
-          <Col xs={5}>
-          { TileConfig.showtiles.Weather &&
-            <Weather openModal={openModal} settingsData={settingsData} />
-          }
+          <Col xs={5} className={'height-100vh py-3 overflow-auto'}>
+            {TileConfig.showtiles.Weather &&
+              <Weather openModal={openModal} settingsData={settingsData} />
+            }
 
-          { TileConfig.showtiles.Forecast &&
-            <Forecast />
-          }
+            {TileConfig.showtiles.Forecast &&
+              <Forecast />
+            }
 
-          { TileConfig.showtiles.News &&
-            <News />
-          }
+            {TileConfig.showtiles.News &&
+              <News />
+            }
 
           </Col>
 
