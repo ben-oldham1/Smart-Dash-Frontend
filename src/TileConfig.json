@@ -1,11 +1,14 @@
 {
     "showtiles": {
-        "Today": false,
-        "Bus": false,
+        "Today": true,
+        "Suncycle": true,
+        "Bus": true,
+        "DailySpacePic": true,
+        "Devices": false,
         "Forecast": false,
         "Plants": false,
-        "Speedtest": false,
-        "Weather": false,
+        "Speedtest": true,
+        "Weather": true,
         "News": true
     }
 }
