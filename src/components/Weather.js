@@ -27,7 +27,7 @@ const Weather = (props) => {
 
     fetchWeatherData();
 
-    const interval = setInterval(fetchWeatherData, 20 * 60 * 1000); // Fetch data every 15 minutes
+    const interval = setInterval(fetchWeatherData, 30 * 60 * 1000); // Fetch data every 30 minutes
 
     return () => {
       clearInterval(interval);
