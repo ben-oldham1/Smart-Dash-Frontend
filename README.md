@@ -1,11 +1,11 @@
 <div align="center">
-  <img alt="Logo" src="https://github.com/ben-oldham1/Bens-Portfolio/blob/b3a64094734b22a240cc93d4b69182bc89d22dee/public/logo512.png" width="100" />
+  <img alt="Logo" src="public/logo512.png" width="100" />
 </div>
 <h1 align="center">
   Smart Dashboard (Front-end)
 </h1>
 <p align="center">
-The frontend for my smart dashboard project. It calls the [backend API](https://github.com/ben-oldham1/Smart-Dash-API) and displays the data in a SCI-FI style dashboard that updates asynchronously. 
+The frontend for my smart dashboard project. It calls the <a href="https://github.com/ben-oldham1/Smart-Dash-API">backend API</a> and displays the data in a SCI-FI style dashboard that updates asynchronously. 
 </p>
 <p  align="center">
 <img  src="https://img.shields.io/badge/React-667881?style=for-the-badge&logo=react&logoColor=61DAFB" />
