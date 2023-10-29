@@ -4,6 +4,7 @@
 <h1 align="center">
   Smart Dashboard (Front-end)
 </h1>
+
 <p align="center">
 The frontend for my smart dashboard project. It calls the <a href="https://github.com/ben-oldham1/Smart-Dash-API">backend API</a> and displays the data in a SCI-FI style dashboard that updates asynchronously. 
 </p>
@@ -12,8 +13,8 @@ The frontend for my smart dashboard project. It calls the <a href="https://githu
 <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" />
 <img  src="https://img.shields.io/badge/json-5881D8?style=for-the-badge&logo=json&logoColor=white" />
 </p>
- 
- SCREENSHOT WILL GO HERE	
+
+<img src="https://github.com/ben-oldham1/Smart-Dash-Frontend/blob/c3cf3911cd8413b68aa0a2bb64bd3e638b0d9f56/screenshots/Mockupcover.png" alt="Screenshot of smart dash" title="Screenshot">
 
 ## Tiles
 
